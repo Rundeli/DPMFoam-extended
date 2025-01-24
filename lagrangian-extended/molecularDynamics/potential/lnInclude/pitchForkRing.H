@@ -1,1 +1,0 @@
-../tetherPotential/derived/pitchForkRing/pitchForkRing.H

@@ -1,1 +1,0 @@
-../submodels/BinaryCollisionModel/VariableHardSphere/VariableHardSphere.C

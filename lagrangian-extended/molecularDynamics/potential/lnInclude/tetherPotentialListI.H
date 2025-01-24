@@ -1,1 +1,0 @@
-../tetherPotential/tetherPotentialList/tetherPotentialListI.H

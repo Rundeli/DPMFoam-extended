@@ -42,6 +42,7 @@ License
 #include "NoInjection.H"
 #include "PatchInjection.H"
 #include "PatchFlowRateInjection.H"
+#include "PeriodPatchInjection.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -60,7 +61,8 @@ License
     makeInjectionModelType(ManualInjection, CloudType);                        \
     makeInjectionModelType(NoInjection, CloudType);                            \
     makeInjectionModelType(PatchInjection, CloudType);                         \
-    makeInjectionModelType(PatchFlowRateInjection, CloudType);
+    makeInjectionModelType(PatchFlowRateInjection, CloudType);                 \
+    makeInjectionModelType(PeriodPatchInjection, CloudType);
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

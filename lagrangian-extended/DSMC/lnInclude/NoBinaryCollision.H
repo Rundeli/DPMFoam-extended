@@ -1,1 +1,0 @@
-../submodels/BinaryCollisionModel/NoBinaryCollision/NoBinaryCollision.H

@@ -1,1 +1,0 @@
-../energyScalingFunction/derived/noScaling/noScaling.C

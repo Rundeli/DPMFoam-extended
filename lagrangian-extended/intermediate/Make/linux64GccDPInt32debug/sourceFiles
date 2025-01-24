@@ -25,6 +25,7 @@ submodels/Kinematic/PatchInteractionModel/LocalInteraction/patchInteractionDataL
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionData.C \
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionDataIO.C \
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionDataIOList.C \
+$(KINEMATICINJECTION)/PeriodPatchInjection/PeriodPatchInjectionBase.C \
 $(KINEMATICINJECTION)/PatchInjection/patchInjectionBase.C \
 $(THERMOINJECTION)/ThermoLookupTableInjection/thermoParcelInjectionData.C \
 $(THERMOINJECTION)/ThermoLookupTableInjection/thermoParcelInjectionDataIO.C \

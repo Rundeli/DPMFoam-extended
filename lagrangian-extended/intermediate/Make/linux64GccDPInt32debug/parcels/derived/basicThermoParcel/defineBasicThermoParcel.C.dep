@@ -4,7 +4,7 @@ parcels/derived/basicThermoParcel/basicThermoParcel.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/contiguous.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelFwd.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/scalarFwd.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particle.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particle.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/vector.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/scalar.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/floatScalar.H \
@@ -155,7 +155,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/TensorI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SymmTensor.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SymmTensorI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/BarycentricTensorI.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/Cloud.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/Cloud.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cloud.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/objectRegistry.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashSet.H \
@@ -450,7 +450,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/solverPerformance.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SolverPerformance.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SolverPerformance.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/meshStateTemplates.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/Cloud.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/Cloud.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/processorPolyPatch.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coupledPolyPatch.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/diagTensorField.H \
@@ -552,9 +552,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coordinateRotation.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coordinateSystemTemplates.C \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicAMIPolyPatchI.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicAMIPolyPatchTemplates.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/CloudIO.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/IOPosition.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/IOPosition.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/CloudIO.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/IOPosition.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/IOPosition.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashPtrTable.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashPtrTableI.H \
@@ -571,9 +571,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedron.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedronI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedron.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetIndicesI.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleMacros.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleI.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleTemplates.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleMacros.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleI.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleTemplates.C \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicACMIPolyPatch.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/PatchFunction1.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/patchFunction1Base.H \

@@ -9,4 +9,4 @@ injectedParticle/injectedParticleCloud.C
 
 InteractionLists/referredWallFace/referredWallFace.C
 
-LIB = $(FOAM_USR_LIBBIN)/liblagrangian-extended
+LIB = $(FOAM_USER_LIBBIN)/liblagrangian-extended

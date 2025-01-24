@@ -41,7 +41,7 @@ License
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-#define makeParcelPatchInteractionModels(CloudType)                            \                                                                                   
+#define makeParcelPatchInteractionModels(CloudType)                            \
                                                                                \
     makePatchInteractionModel(CloudType);                                      \
                                                                                \

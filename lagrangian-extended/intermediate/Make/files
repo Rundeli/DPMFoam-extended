@@ -69,6 +69,7 @@ KINEMATICINJECTION=submodels/Kinematic/InjectionModel
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionData.C
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionDataIO.C
 $(KINEMATICINJECTION)/KinematicLookupTableInjection/kinematicParcelInjectionDataIOList.C
+$(KINEMATICINJECTION)/PeriodPatchInjection/PeriodPatchInjectionBase.C
 $(KINEMATICINJECTION)/PatchInjection/patchInjectionBase.C
 
 THERMOINJECTION=submodels/Thermodynamic/InjectionModel
@@ -129,5 +130,4 @@ submodels/MPPIC/AveragingMethods/makeAveragingMethods.C
 conversion/ensight/ensightOutputCloud.C
 conversion/vtk/foamVtkLagrangianWriter.C
 
-
-LIB = /home/rundeli/DPMFOAM-extended/liblagrangianIntermediate-extended
+LIB = $(FOAM_USER_LIBBIN)/liblagrangianIntermediate-extended

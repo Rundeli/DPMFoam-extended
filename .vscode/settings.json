@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "particle.C": "cpp",
+        "MPPICFoam.C": "cpp",
+        "DPMFoam.C": "cpp",
+        "PeriodInteraction.C": "cpp",
+        "PeriodPatchInjectionBase.C": "cpp",
+        "RecycleInteraction.C": "cpp",
+        "CloudSubModelBase.C": "cpp",
+        "makeBasicKinematicParcelSubmodels.C": "cpp",
+        "DPMFoam-extended.C": "cpp",
+        "makeBasicKinematicCollidingParcelSubmodels.C": "cpp",
+        "defineBasicKinematicParcel.C": "cpp",
+        "patchInjectionBase.C": "cpp",
+        "PatchInjection.C": "cpp",
+        "PeriodPatchInjection.C": "cpp",
+        "InjectedParticleDistributionInjection.C": "cpp",
+        "distributionModelNew.C": "cpp",
+        "distributionModel.C": "cpp",
+        "defineBasicKinematicCollidingParcel.C": "cpp",
+        "ManualInjection.C": "cpp"
+    }
+}

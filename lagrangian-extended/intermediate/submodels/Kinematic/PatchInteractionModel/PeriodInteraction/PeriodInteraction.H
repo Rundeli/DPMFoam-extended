@@ -146,8 +146,9 @@ protected:
         //- Injector ID to local index map
         Map<label> injIdToIndex_;
 
-        //- Injection patch pointer
+        //- Injection patch pointer //考虑出流与入流边界均布置粒子注射模型
         PtrList<PeriodPatchInjectionBase> injectionPatchPtr_;
+        // List<PtrList<PeriodPatchInjectionBase>> injectionPatchPtr_;
 
         //- Parcel fraction to be recycled from outlet to inlet
         const scalar recycleFraction_;

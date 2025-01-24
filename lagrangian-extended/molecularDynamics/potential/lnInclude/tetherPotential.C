@@ -1,1 +1,0 @@
-../tetherPotential/basic/tetherPotential.C

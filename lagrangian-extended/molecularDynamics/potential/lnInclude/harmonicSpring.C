@@ -1,1 +1,0 @@
-../tetherPotential/derived/harmonicSpring/harmonicSpring.C

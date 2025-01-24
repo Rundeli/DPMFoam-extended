@@ -1,1 +1,0 @@
-../energyScalingFunction/basic/energyScalingFunctionNew.C

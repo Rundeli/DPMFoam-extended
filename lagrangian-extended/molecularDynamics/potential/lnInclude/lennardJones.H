@@ -1,1 +1,0 @@
-../pairPotential/derived/lennardJones/lennardJones.H

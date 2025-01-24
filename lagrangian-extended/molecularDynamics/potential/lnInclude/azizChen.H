@@ -1,1 +1,0 @@
-../pairPotential/derived/azizChen/azizChen.H

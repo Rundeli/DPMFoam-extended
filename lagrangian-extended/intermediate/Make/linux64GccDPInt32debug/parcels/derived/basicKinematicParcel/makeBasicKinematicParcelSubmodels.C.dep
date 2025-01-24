@@ -1,7 +1,7 @@
 $(OBJECTS_DIR)/parcels/derived/basicKinematicParcel/makeBasicKinematicParcelSubmodels.C.dep: \
 parcels/derived/basicKinematicParcel/makeBasicKinematicParcelSubmodels.C \
 lnInclude/basicKinematicCloud.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/Cloud.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/Cloud.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cloud.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/objectRegistry.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashTable.H \
@@ -443,7 +443,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/solverPerformance.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SolverPerformance.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SolverPerformance.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/meshStateTemplates.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/Cloud.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/Cloud.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/processorPolyPatch.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coupledPolyPatch.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/diagTensorField.H \
@@ -545,9 +545,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coordinateRotation.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/coordinateSystemTemplates.C \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicAMIPolyPatchI.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicAMIPolyPatchTemplates.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/CloudIO.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/IOPosition.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/IOPosition.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/CloudIO.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/IOPosition.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/IOPosition.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashPtrTable.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashPtrTableI.H \
@@ -556,7 +556,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashPtrTableIO.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectListI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectListTemplates.C \
 lnInclude/KinematicCloud.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particle.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particle.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/barycentric.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Barycentric.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/BarycentricI.H \
@@ -572,9 +572,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedron.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedronI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetrahedron.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tetIndicesI.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleMacros.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleI.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/particleTemplates.C \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleMacros.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleI.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/particleTemplates.C \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/cyclicACMIPolyPatch.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/PatchFunction1.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/patchFunction1Base.H \
@@ -1183,9 +1183,9 @@ lnInclude/FieldActivatedInjection.C \
 lnInclude/InjectedParticleDistributionInjection.H \
 $(WM_PROJECT_DIR)/src/lagrangian/distributionModels/lnInclude/general.H \
 lnInclude/InjectedParticleDistributionInjection.C \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/injectedParticleCloud.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/injectedParticle.H \
-$(WM_PROJECT_DIR)/src/lagrangian/basic/lnInclude/injectedParticleI.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/injectedParticleCloud.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/injectedParticle.H \
+/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude/injectedParticleI.H \
 lnInclude/InjectedParticleInjection.H \
 lnInclude/InjectedParticleInjection.C \
 lnInclude/InflationInjection.H \
@@ -1213,6 +1213,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelledTriI.H \
 lnInclude/PatchInjection.C \
 lnInclude/PatchFlowRateInjection.H \
 lnInclude/PatchFlowRateInjection.C \
+lnInclude/PeriodPatchInjection.H \
+lnInclude/PeriodPatchInjectionBase.H \
+lnInclude/PeriodPatchInjection.C \
 lnInclude/makeParcelPatchInteractionModels.H \
 lnInclude/LocalInteraction.H \
 lnInclude/patchInteractionDataList.H \
@@ -1229,7 +1232,6 @@ lnInclude/RecycleInteraction.C \
 lnInclude/StandardWallInteraction.H \
 lnInclude/StandardWallInteraction.C \
 lnInclude/PeriodInteraction.H \
-lnInclude/PeriodPatchInjectionBase.H \
 lnInclude/PeriodInteraction.C \
 lnInclude/makeParcelStochasticCollisionModels.H \
 lnInclude/NoStochasticCollision.H \

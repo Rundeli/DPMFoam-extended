@@ -1,0 +1,110 @@
+==82678== Memcheck, a memory error detector
+==82678== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==82678== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==82678== Command: DPMFoam-extended
+==82678== Parent PID: 60246
+==82678== 
+==82678== Warning: --workaround-gcc296-bugs=yes is deprecated.
+==82678== Warning: Instead use: --ignore-range-below-sp=1024-1
+==82678== 
+==82678== Invalid free() / delete / delete[] / realloc()
+==82678==    at 0x484BB6F: operator delete(void*, unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0xB939A55: __cxa_finalize (cxa_finalize.c:83)
+==82678==    by 0xE4F22D6: ??? (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400624D: _dl_fini (dl-fini.c:142)
+==82678==    by 0xB939494: __run_exit_handlers (exit.c:113)
+==82678==    by 0xB93960F: exit (exit.c:143)
+==82678==    by 0xADC366D: Foam::error::simpleExit(int, bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xAE30BFE: Foam::fileOperations::uncollatedFileOperation::readStream(Foam::regIOobject&, Foam::fileName const&, Foam::word const&, bool) const (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00F64F: Foam::regIOobject::readStream(bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00FA63: Foam::regIOobject::readStream(Foam::word const&, bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xAE30234: Foam::fileOperations::uncollatedFileOperation::read(Foam::regIOobject&, bool, Foam::IOstreamOption::streamFormat, Foam::word const&) const (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00F41A: Foam::regIOobject::readHeaderOk(Foam::IOstreamOption::streamFormat, Foam::word const&) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==  Address 0x10c46590 is 0 bytes inside a block of size 221 free'd
+==82678==    at 0x484BB6F: operator delete(void*, unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0xB939A55: __cxa_finalize (cxa_finalize.c:83)
+==82678==    by 0x79B22D6: ??? (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian-extended.so)
+==82678==    by 0x400624D: _dl_fini (dl-fini.c:142)
+==82678==    by 0xB939494: __run_exit_handlers (exit.c:113)
+==82678==    by 0xB93960F: exit (exit.c:143)
+==82678==    by 0xADC366D: Foam::error::simpleExit(int, bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xAE30BFE: Foam::fileOperations::uncollatedFileOperation::readStream(Foam::regIOobject&, Foam::fileName const&, Foam::word const&, bool) const (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00F64F: Foam::regIOobject::readStream(bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00FA63: Foam::regIOobject::readStream(Foam::word const&, bool) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xAE30234: Foam::fileOperations::uncollatedFileOperation::read(Foam::regIOobject&, bool, Foam::IOstreamOption::streamFormat, Foam::word const&) const (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==    by 0xB00F41A: Foam::regIOobject::readHeaderOk(Foam::IOstreamOption::streamFormat, Foam::word const&) (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/libOpenFOAM.so)
+==82678==  Block was alloc'd at
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0xB70D0BD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==82678==    by 0xB70EB4F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==82678==    by 0x79CA929: Foam::injectedParticle::propertyList() (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian-extended.so)
+==82678==    by 0x79B20D1: _GLOBAL__sub_I_injectedParticleIO.C (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian-extended.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== 
+==82678== HEAP SUMMARY:
+==82678==     in use at exit: 2,032 bytes in 22 blocks
+==82678==   total heap usage: 81,479 allocs, 81,462 frees, 7,850,364 bytes allocated
+==82678== 
+==82678== 17 bytes in 1 blocks are definitely lost in loss record 8 of 22
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0x16B45C: Foam::word::word(char const*, bool) (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/bin/DPMFoam-extended)
+==82678==    by 0xE4F200E: _GLOBAL__sub_I_injectedParticle.C (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== 23 bytes in 1 blocks are definitely lost in loss record 9 of 22
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0x16B45C: Foam::word::word(char const*, bool) (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/bin/DPMFoam-extended)
+==82678==    by 0xE4F1DF4: _GLOBAL__sub_I_passiveParticleCloud.C (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== 23 bytes in 1 blocks are definitely lost in loss record 10 of 22
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0x16B45C: Foam::word::word(char const*, bool) (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/bin/DPMFoam-extended)
+==82678==    by 0xE4F1F04: _GLOBAL__sub_I_indexedParticleCloud.C (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== 111 bytes in 1 blocks are definitely lost in loss record 20 of 22
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0xE4F1CE6: _GLOBAL__sub_I_particleIO.C (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== 221 bytes in 1 blocks are definitely lost in loss record 21 of 22
+==82678==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==82678==    by 0xB70D0BD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==82678==    by 0xB70EB4F: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==82678==    by 0x79CA929: Foam::injectedParticle::propertyList() (in /home/rundeli/OpenFOAM/rundeli-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian-extended.so)
+==82678==    by 0xE4F20D1: _GLOBAL__sub_I_injectedParticleIO.C (in /home/rundeli/OpenFOAM/v2406/OpenFOAM-v2406/platforms/linux64GccDPInt32debug/lib/liblagrangian.so)
+==82678==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==82678==    by 0x4006567: call_init (dl-init.c:33)
+==82678==    by 0x4006567: _dl_init (dl-init.c:117)
+==82678==    by 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+==82678== 
+==82678== LEAK SUMMARY:
+==82678==    definitely lost: 395 bytes in 5 blocks
+==82678==    indirectly lost: 0 bytes in 0 blocks
+==82678==      possibly lost: 0 bytes in 0 blocks
+==82678==    still reachable: 1,637 bytes in 17 blocks
+==82678==                       of which reachable via heuristic:
+==82678==                         newarray           : 40 bytes in 1 blocks
+==82678==         suppressed: 0 bytes in 0 blocks
+==82678== Reachable blocks (those to which a pointer was found) are not shown.
+==82678== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==82678== 
+==82678== For lists of detected and suppressed errors, rerun with: -s
+==82678== ERROR SUMMARY: 10 errors from 6 contexts (suppressed: 0 from 0)

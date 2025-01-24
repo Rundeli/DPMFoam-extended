@@ -19,4 +19,4 @@ REACTINGMPINJECTION=submodels/ReactingMultiphase/InjectionModel
 MPPICPARTICLESTRESS=submodels/MPPIC/ParticleStressModels
 MPPICCORRECTIONLIMITING=submodels/MPPIC/CorrectionLimitingMethods
 MPPICTIMESCALE=submodels/MPPIC/TimeScaleModels
-LIB = /home/rundeli/DPMFOAM-extended/liblagrangianIntermediate-extended
+LIB = $(FOAM_USER_LIBBIN)/liblagrangianIntermediate-extended

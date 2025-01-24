@@ -1,1 +1,0 @@
-../pairPotential/basic/pairPotential.C

@@ -1,1 +1,0 @@
-../pairPotential/derived/dampedCoulomb/dampedCoulomb.C

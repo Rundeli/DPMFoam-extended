@@ -220,12 +220,13 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
 
             for (parcelType& p : patchParcels)
             {
-                barycentric oldPCords = p.coordinates();
-                
-                vector newPCords(oldPCords.b(),oldPCords.c(),oldPCords.d());
+                point positionOnExit = p.position();
+                point positionOnEntry;
+                vector direction(-1,0,0);
+                label enterTrifaceIndex;
+                scalar fraction01;
 
-                label trii_old;
-                scalar fraction01 = injectionPatch.setFraction01(mesh_,newPCords,trii_old);
+                injectionPatch.setEntry(mesh_,positionOnExit,direction,positionOnEntry,enterTrifaceIndex,fraction01);
 
                 // Identify the processor that owns the location
                 const label toProci = injectionPatch.whichProc(fraction01);
@@ -239,10 +240,11 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                 }
 
                 // Tuple: (address fraction particle)
-                (*osptr) << addri << fraction01 << p;
+                (*osptr) << addri << fraction01 << positionOnEntry << enterTrifaceIndex << p;
 
                 // Can now remove from list and delete
                 delete(patchParcels.remove(&p));
+
             }
         }
 
@@ -268,25 +270,26 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                 {
                     const label addri = pTraits<label>(is);
                     const scalar fraction01 = pTraits<scalar>(is);
+                    vector positionOnEntry = pTraits<vector>(is);
+                    const label enterTrifaceIndex = pTraits<label>(is);
                     auto* newp = new parcelType(this->owner().mesh(), is);
 
                     // Parcel to be recycled
                     label cellOwner;
-                    vector newPCords;
                     label dummy;
                     injectionPatchPtr_[addri].setPositionAndCell
                     (
                         mesh_,
                         fraction01,
                         this->owner().rndGen(),
-                        newPCords,
+                        positionOnEntry,
+                        enterTrifaceIndex,
                         cellOwner,
-                        dummy,
                         dummy,
                         dummy
                     );
 
-                    newp->relocate(newPCords,cellOwner);
+                    newp->relocate(positionOnEntry,cellOwner);
 
                     const label idx =
                     (
@@ -306,39 +309,35 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
         {
             for (parcelType& p : recycledParcels_[addri])
             {
-                //存储旧粒子速度
-                vector Uold = p.U();
+                //获取旧粒子位置坐标
+                point positionOnExit = p.position();
+                
                 //粒子移出回收粒子list
                 parcelType* newp = recycledParcels_[addri].remove(&p);
 
-                //获取旧粒子位置坐标
-                barycentric oldPCords = newp->coordinates();
-
-                //以旧粒子位置坐标初始化新粒子坐标准备传入setPositionAndCell()
-                vector newPCords(oldPCords.b(),oldPCords.c(),oldPCords.d());
-
                 //初始化其余setPositionAndCell()需传入参数
+                point positionOnEntry;
                 label cellOwner;
-                label triii;
+                label enterTrifaceIndex;
                 label dummy;
+                const vector direction(-1,0,0);
 
                 //调用PeriodPatchInjectionBase::setPositionAndCell()中
                 injectionPatchPtr_[addri].setPositionAndCell
                 (
                     mesh_,
                     this->owner().rndGen(),
-                    newPCords,
-                    triii,
+                    positionOnExit,
+                    positionOnEntry,
+                    direction,
+                    enterTrifaceIndex,
                     cellOwner,
                     dummy,
                     dummy
                 );
-
+        
                 //调用particle::relocate()移动粒子
-                newp->relocate(newPCords,cellOwner);
-
-                //将粒子速度设为原来粒子速度
-                newp->U() = Uold;
+                newp->relocate(positionOnEntry,cellOwner);
             
                 /*label removedParcelInCell = newp->celli();
                 scalar removedParcelCord_x = cloud.mesh().cell(removedParcelInCell)

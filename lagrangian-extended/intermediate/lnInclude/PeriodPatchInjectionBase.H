@@ -1,1 +1,1 @@
-../submodels/Kinematic/PatchInteractionModel/PeriodInteraction/PeriodPatchInjectionBase.H
+../submodels/Kinematic/InjectionModel/PeriodPatchInjection/PeriodPatchInjectionBase.H

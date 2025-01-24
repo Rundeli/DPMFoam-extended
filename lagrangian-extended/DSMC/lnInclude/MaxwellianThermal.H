@@ -1,1 +1,0 @@
-../submodels/WallInteractionModel/MaxwellianThermal/MaxwellianThermal.H

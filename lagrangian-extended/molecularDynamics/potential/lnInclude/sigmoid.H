@@ -1,1 +1,0 @@
-../energyScalingFunction/derived/sigmoid/sigmoid.H

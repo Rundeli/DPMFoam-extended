@@ -2,8 +2,8 @@ EXE_INC = \
     -I$(LIB_SRC)/finiteVolume/lnInclude \
     -I$(LIB_SRC)/surfMesh/lnInclude \
     -I$(LIB_SRC)/meshTools/lnInclude \
-    -I$(LIB_SRC)/lagrangian/basic/lnInclude \
-    -I$(LIB_SRC)/lagrangian/intermediate/lnInclude \
+    -I/home/rundeli/DPMFoam-extended/lagrangian-extended/basic/lnInclude \
+    -I/home/rundeli/DPMFoam-extended/lagrangian-extended/intermediate/lnInclude \
     -I$(LIB_SRC)/lagrangian/distributionModels/lnInclude \
     -I$(LIB_SRC)/transportModels/compressible/lnInclude \
     -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude \
@@ -24,11 +24,13 @@ EXE_INC = \
     -I$(LIB_SRC)/faOptions/lnInclude
 
 LIB_LIBS = \
+    -L$(FOAM_LIBBIN) \
+    -L$(FOAM_USER_LIBBIN) \
     -lfiniteVolume \
     -lsurfMesh \
     -lmeshTools \
-    -llagrangian \
-    -llagrangianIntermediate \
+    -llagrangian-extended \
+    -llagrangianIntermediate-extended \
     -ldistributionModels \
     -lspecie \
     -lcompressibleTransportModels \
