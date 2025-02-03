@@ -1,4 +1,4 @@
-这是一个可以与原OpenFOAM lagrangrian库进行隔离，以便自由扩展的DPMFoam版本，目前扩展工作有：
+这是一个与原OpenFOAM lagrangrian库代码进行隔离，以便自由扩展的DPMFoam版本，目前扩展工作有：
 1.新增单向周期性粒子patchInteractionModel: periodInteraction，用以模拟无限长的周期性物理条件相似水槽，避免粒子在模拟过程中流失。
 
 下一步工作:
