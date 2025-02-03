@@ -121,7 +121,6 @@ public:
         label setPositionAndCell
         (
             const fvMesh& mesh,
-            const scalar fraction01,
             Random& rnd,
             vector& position,
             const label& trii,
@@ -145,14 +144,13 @@ public:
             label& tetPti
         );
 
-        void setEntry
+        void setEntryPos
         (
             const fvMesh& mesh,
             const point& positionOnExit,
             const vector& direction,
             point& positionOnEntry,
-            label& enterTrifaceIndex,
-            scalar& fraction01
+            label& enterTrifaceIndex
         );
 
         //- Return the processor that has the location specified by the fraction

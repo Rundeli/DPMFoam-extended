@@ -122,6 +122,7 @@ void Foam::PeriodPatchInjectionBase::updateMesh(const polyMesh& mesh)
 
         // Transfer to persistent storage
         triFace_.transfer(dynTriFace);
+
     }
 
     //初始化当前processor序号
@@ -184,7 +185,6 @@ void Foam::PeriodPatchInjectionBase::updateMesh(const polyMesh& mesh)
 Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
 (
     const fvMesh& mesh,
-    const scalar fraction01,
     Random& rnd,
     vector& position,
     const label& trii,
@@ -201,7 +201,7 @@ Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
     if (!cellOwners_.empty())
     {
         // Determine which processor to inject from
-        const label proci = whichProc(fraction01);
+        const label proci = 0;
 
         //如果当前processor是粒子注入位置所属processor
         if (UPstream::myProcNo() == proci)
@@ -296,14 +296,12 @@ Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
     label& tetPti
 )
 {
-    scalar fraction01;
     label enterTrifaceIndex;
-    setEntry(mesh,position,direction,positionOnEntry,enterTrifaceIndex,fraction01);
+    setEntryPos(mesh,position,direction,positionOnEntry,enterTrifaceIndex);
 
     return setPositionAndCell
     (
         mesh,
-        fraction01,
         rnd,
         positionOnEntry,
         enterTrifaceIndex,
@@ -313,14 +311,13 @@ Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
     );
 }
  
-void Foam::PeriodPatchInjectionBase::setEntry
+void Foam::PeriodPatchInjectionBase::setEntryPos
 ( 
     const fvMesh& mesh,
     const point& positionOnExit,
     const vector& direction,
     vector& positionOnEntry,
-    label& enterTrifaceIndex,
-    scalar& fraction01
+    label& enterTrifaceIndex
 )
 {
     //初始化边界面patch
@@ -349,20 +346,22 @@ void Foam::PeriodPatchInjectionBase::setEntry
             << "The search for entry location failed."
             << positionOnExit
             << positionOnEntry
-            << enterTrifaceIndex
+            << enterTrifaceIndex <<" "
             << i
             << exit(FatalError);
     }
 
     //得到与输入位置距离最小的triFace处的累加三角面面积
-    scalar cumulativeTriAreaTo = triCumulativeMagSf_[enterTrifaceIndex+1];
+    //scalar cumulativeTriAreaTo = triCumulativeMagSf_[enterTrifaceIndex+1];
     //返回该triFace处的累计三角面与patch总面积之比,即fraction01
-    fraction01 = cumulativeTriAreaTo/patchArea_;
+    //fraction01 = cumulativeTriAreaTo/patchArea_;
 }
 
 
-Foam::label Foam::PeriodPatchInjectionBase::whichProc(const scalar fraction01) const
+/*Foam::label Foam::PeriodPatchInjectionBase::whichProc(const scalar fraction01) const
 {
+
+
     const scalar areaFraction = fraction01*patchArea_;
 
     // Determine which processor to inject from
@@ -375,7 +374,5 @@ Foam::label Foam::PeriodPatchInjectionBase::whichProc(const scalar fraction01) c
     }
 
     return 0;
-}
-
-
+}*/
 // ************************************************************************* //

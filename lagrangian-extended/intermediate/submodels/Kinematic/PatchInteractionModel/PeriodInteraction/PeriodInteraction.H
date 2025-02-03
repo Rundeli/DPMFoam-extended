@@ -156,7 +156,6 @@ protected:
         //- Flag to output escaped/mass particles sorted by injectorID
         bool outputByInjectorId_;
 
-
     // Protected Member Functions
 
         //- Output file header information

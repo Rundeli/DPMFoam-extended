@@ -107,7 +107,6 @@ Foam::PeriodInteraction<CloudType>::PeriodInteraction
 
     forAll(nRemoved_, i)
     {
-        // Create injection helper for each inflow patch
         injectionPatchPtr_.set
         (
             i,
@@ -168,7 +167,7 @@ bool Foam::PeriodInteraction<CloudType>::correct
       : 0
     );
 
-    // See if this patch is designated an outflow patch
+    //检查该patch是否在recyclePatch中
     label addri = -1;
     forAll(recyclePatchesIds_, i)
     {
@@ -181,13 +180,14 @@ bool Foam::PeriodInteraction<CloudType>::correct
 
     if (addri == -1)
     {
-        // Not processing this outflow patch
+        //如不在recyclePatch中不做处理
         keepParticle = true;
         return false;
     }
 
     // Flag to remove current parcel and copy to local storage
     keepParticle = false;
+
     recycledParcels_[addri].append
     (
         static_cast<parcelType*>(p.clone().ptr())
@@ -216,20 +216,19 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
         forAll(recycledParcels_, addri)
         {
             auto& patchParcels = recycledParcels_[addri];
-            auto& injectionPatch = injectionPatchPtr_[addri];
+            //auto& injectionPatch = injectionPatchPtr_[addri];
 
             for (parcelType& p : patchParcels)
             {
-                point positionOnExit = p.position();
-                point positionOnEntry;
-                vector direction(-1,0,0);
-                label enterTrifaceIndex;
-                scalar fraction01;
-
-                injectionPatch.setEntry(mesh_,positionOnExit,direction,positionOnEntry,enterTrifaceIndex,fraction01);
+                point positionOnExit_ = p.position();
+                //point positionOnEntry_;
+                //const vector direction(-1,0,0);
+                //label enterTrifaceIndex_;
+                //scalar fraction01 = 0;
 
                 // Identify the processor that owns the location
-                const label toProci = injectionPatch.whichProc(fraction01);
+                //显示为硬编码为0，目前不能对patch进行分解分属多个processor，下一步研究如何计算processor编号方法（该作用域无法访问Triface_计算粒子注入位置）
+                const label toProci = 0;
 
                 // Get/create output stream
                 auto* osptr = UOPstreamPtrs.get(toProci);
@@ -240,7 +239,7 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                 }
 
                 // Tuple: (address fraction particle)
-                (*osptr) << addri << fraction01 << positionOnEntry << enterTrifaceIndex << p;
+                (*osptr) << addri << positionOnExit_ << p;
 
                 // Can now remove from list and delete
                 delete(patchParcels.remove(&p));
@@ -269,10 +268,15 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                 while (!is.eof())
                 {
                     const label addri = pTraits<label>(is);
-                    const scalar fraction01 = pTraits<scalar>(is);
-                    vector positionOnEntry = pTraits<vector>(is);
-                    const label enterTrifaceIndex = pTraits<label>(is);
+                    const point positionOnExit = pTraits<vector>(is);
                     auto* newp = new parcelType(this->owner().mesh(), is);
+
+                    const vector direction(-1,0,0);
+
+                    point positionOnEntry;
+                    label enterTrifaceIndex;
+
+                    injectionPatchPtr_[addri].setEntryPos(mesh_,positionOnExit,direction,positionOnEntry,enterTrifaceIndex);
 
                     // Parcel to be recycled
                     label cellOwner;
@@ -280,7 +284,6 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                     injectionPatchPtr_[addri].setPositionAndCell
                     (
                         mesh_,
-                        fraction01,
                         this->owner().rndGen(),
                         positionOnEntry,
                         enterTrifaceIndex,
@@ -299,6 +302,8 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
                     );
                     ++nInjected_[addri][idx];
                     massInjected_[addri][idx] += newp->nParticle()*newp->mass();
+
+                    this->owner().addParticle(newp);
                 }
             }
         }
@@ -317,8 +322,8 @@ void Foam::PeriodInteraction<CloudType>::postEvolve()
 
                 //初始化其余setPositionAndCell()需传入参数
                 point positionOnEntry;
-                label cellOwner;
                 label enterTrifaceIndex;
+                label cellOwner;
                 label dummy;
                 const vector direction(-1,0,0);
 
