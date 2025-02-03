@@ -7,7 +7,7 @@
 
 This is a extended version of DPMFoam which is seperate from orginal OpenFOAM lagrangrian code to aviod compiling problem when implementing new patchInteraction models, particle models and so on.
 The following model has been implemented:
-1.One-direction particle period recycle patchInteractionModel: periodInteraction, which is intened to simulate a wave flume which has infinite length and aviod particle escape during simulation.
+1.One-direction particle period recycle patchInteractionModel: periodInteraction.Particles exit the outflow patch and are injected into the inflow patch with the same position and velocity they had upon exiting the patch，which is intened to simulate a wave flume which has infinite length and aviod particle escape during simulation.
 
 Things to do next:
 1:add support for two-direction period recycle to simulate wave flume under periodic wave;
