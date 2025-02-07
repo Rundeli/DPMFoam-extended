@@ -43,6 +43,7 @@
             Uc = HbyA
               + rAUc*fvc::reconstruct((phicForces - pEqn.flux()/alphacf)/rAUcf);
             Uc.correctBoundaryConditions();
+
         }
     }
 }

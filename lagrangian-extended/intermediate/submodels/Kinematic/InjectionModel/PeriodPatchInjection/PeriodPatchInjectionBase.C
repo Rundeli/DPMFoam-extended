@@ -39,7 +39,9 @@ License
 Foam::PeriodPatchInjectionBase::PeriodPatchInjectionBase
 (
     const polyMesh& mesh,
-    const word& patchName
+    const word& patchName,
+    const bool& isFirstPatch,
+    const bool& isSecondPatch
 )
 :
     patchName_(patchName),
@@ -49,7 +51,9 @@ Foam::PeriodPatchInjectionBase::PeriodPatchInjectionBase
     cellOwners_(),
     triFace_(),
     triCumulativeMagSf_(),
-    sumTriMagSf_()
+    sumTriMagSf_(),
+    isFirstPatch_(isFirstPatch),
+    isSecondPatch_(isSecondPatch)
 {
     if (patchId_ < 0)
     {
@@ -72,7 +76,9 @@ Foam::PeriodPatchInjectionBase::PeriodPatchInjectionBase(const PeriodPatchInject
     cellOwners_(pib.cellOwners_),
     triFace_(pib.triFace_),
     triCumulativeMagSf_(pib.triCumulativeMagSf_),
-    sumTriMagSf_(pib.sumTriMagSf_)
+    sumTriMagSf_(pib.sumTriMagSf_),
+    isFirstPatch_(pib.isFirstPatch_),
+    isSecondPatch_(pib.isSecondPatch_)
 {}
 
 
@@ -200,8 +206,24 @@ Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
     //如果face所属cell列表不为空
     if (!cellOwners_.empty())
     {
+
+        label proci = -1;
+
         // Determine which processor to inject from
-        const label proci = 0;
+        if(isFirstPatch_)
+        {
+            proci = 0;
+        }
+        else if(isSecondPatch_)
+        {
+            proci = 5;
+        }
+        else
+        {
+            FatalErrorInFunction
+                << "Must inject from the the first patch or the second patch, check your initalization statement"
+                << exit(FatalError);
+        }
 
         //如果当前processor是粒子注入位置所属processor
         if (UPstream::myProcNo() == proci)
@@ -218,7 +240,7 @@ Foam::label Foam::PeriodPatchInjectionBase::setPositionAndCell
             const vector d =
                 mag((positionBk - pc) & patchNormal_[facei])*patchNormal_[facei];
 
-            position = positionBk - 0.1*a*d;
+            position = positionBk - 0.01*a*d;
 
             // Try to find tetFacei and tetPti in the current position
             mesh.findTetFacePt(cellOwner, position, tetFacei, tetPti);
@@ -343,18 +365,14 @@ void Foam::PeriodPatchInjectionBase::setEntryPos
     if (enterTrifaceIndex == -1)
     {
         FatalErrorInFunction
-            << "The search for entry location failed."
+            << "The search for entry location failed. On patch: "
+            << patchName_ 
             << positionOnExit
             << positionOnEntry
             << enterTrifaceIndex <<" "
             << i
             << exit(FatalError);
     }
-
-    //得到与输入位置距离最小的triFace处的累加三角面面积
-    //scalar cumulativeTriAreaTo = triCumulativeMagSf_[enterTrifaceIndex+1];
-    //返回该triFace处的累计三角面与patch总面积之比,即fraction01
-    //fraction01 = cumulativeTriAreaTo/patchArea_;
 }
 
 

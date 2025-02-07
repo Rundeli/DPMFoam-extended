@@ -33,9 +33,7 @@ Description
     Patch interaction model to perform
     parcel transfer and recycle from one patch to another.
 
-    Parcels that hit a given 'outflow' patch
-    are recycled to a given 'inflow' patch, with optional:
-    - recycle fraction [0-1]
+    
 
 Usage
     Minimal example by using
@@ -48,9 +46,9 @@ Usage
         model1
         {
             // Mandatory entries (unmodifiable)
-            patchInteractionModel    PeriodInteraction;
+            patchInteractionModel    periodInteraction;
 
-            PeriodInteractionCoeffs
+            periodInteractionCoeffs
             {
                 recyclePatches
                 (
@@ -125,29 +123,41 @@ protected:
         List<Pair<label>> recyclePatchesIds_;
 
         //- Parcel IDs of recycled parcels
-        List<IDLList<parcelType>> recycledParcels_;
+        List<IDLList<parcelType>> recycledParcels1_;
+
+        List<IDLList<parcelType>> recycledParcels2_;
 
 
         // Bookkeeping for particle fates
 
             //- Number of parcels removed
-            List<List<label>> nRemoved_;
+            List<List<label>> nRemovedOnFirstPatch_;
 
             //- Mass of parcels removed
-            List<List<scalar>> massRemoved_;
+            List<List<scalar>> massRemovedOnFirstPatch_;
 
             //- Number of parcels injected
-            List<List<label>> nInjected_;
+            List<List<label>> nInjectedOnFirstPatch_;
 
             //- Mass of parcels injected
-            List<List<scalar>> massInjected_;
+            List<List<scalar>> massInjectedOnFirstPatch_;
 
+            //第二个patch上的统计数据
+            List<List<label>> nRemovedOnSecondPatch_;
+
+            List<List<scalar>> massRemovedOnSecondPatch_;
+
+            List<List<label>> nInjectedOnSecondPatch_;
+
+            List<List<scalar>> massInjectedOnSecondPatch_;
 
         //- Injector ID to local index map
         Map<label> injIdToIndex_;
 
-        //- Injection patch pointer //考虑出流与入流边界均布置粒子注射模型
-        PtrList<PeriodPatchInjectionBase> injectionPatchPtr_;
+        //- Injection patch pointer //双向周期性回收模型
+        PtrList<PeriodPatchInjectionBase> injectionPatchPtr1_;
+
+        PtrList<PeriodPatchInjectionBase> injectionPatchPtr2_;
         // List<PtrList<PeriodPatchInjectionBase>> injectionPatchPtr_;
 
         //- Parcel fraction to be recycled from outlet to inlet

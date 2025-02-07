@@ -95,12 +95,17 @@ protected:
         //- Cumulative area fractions per processor
         scalarList sumTriMagSf_;
 
+        //定位粒子注入模型所属patch，以确定所属processor
+        bool isFirstPatch_;
+
+        bool isSecondPatch_;
+
 public:
 
     // Constructors
 
         //- Construct from mesh and patch name
-        PeriodPatchInjectionBase(const polyMesh& mesh, const word& patchName);
+        PeriodPatchInjectionBase(const polyMesh& mesh, const word& patchName, const bool& isFirstPatch, const bool& isSecondPatch);
 
         //- Copy constructor
         PeriodPatchInjectionBase(const PeriodPatchInjectionBase& pib);
