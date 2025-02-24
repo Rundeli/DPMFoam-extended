@@ -44,6 +44,7 @@
               + rAUc*fvc::reconstruct((phicForces - pEqn.flux()/alphacf)/rAUcf);
             Uc.correctBoundaryConditions();
 
+            fvOptions.correct(Uc);
         }
     }
 }

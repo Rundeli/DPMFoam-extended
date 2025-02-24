@@ -124,7 +124,6 @@ int main(int argc, char *argv[])
 //         cloudVolSUSu.correctBoundaryConditions();
 //         cloudSU.source() = cloudSU.diag()*Uc();
 
-
         // --- Pressure-velocity PIMPLE corrector loop
         while (pimple.loop())
         {
