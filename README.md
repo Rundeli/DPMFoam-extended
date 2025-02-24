@@ -1,4 +1,4 @@
-Extended euler-lagrangian solver DPMFoam, additional feature include:<br>
+Extended eulerian-lagrangian solver DPMFoam, additional feature include:<br>
 欧拉-拉格朗日求解器DPMFoam扩展版本, 额外功能包括:<br>
 <ul>
 <li>1.Period particle recycle boundary condition.Implemented as patchInteractionModel-periodInteraction</li>
@@ -6,7 +6,12 @@ Extended euler-lagrangian solver DPMFoam, additional feature include:<br>
 </ul>
 <br>
 <ul>
-<li>2.Support for user's custom source term fvOptions</li>
-<li>2.加入对用户自定义源项fvOptions的支持</li>
+<li>2.Implemented waveSource to drive oscillatory flow</li>
+<li>2.植入waveSource驱动振荡流</li>
+</ul>
+<br>
+<ul>
+<li>3.Support for user's custom source term fvOptions</li>
+<li>3.加入对用户自定义源项fvOptions的支持</li>
 </ul>
 <br>
