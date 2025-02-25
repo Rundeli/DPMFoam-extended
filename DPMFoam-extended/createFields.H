@@ -119,26 +119,6 @@ volScalarField alphac
     dimensionedScalar(dimless, Zero)
 );
 
-Info << "Creating wave source\n" << endl;
-
-scalar PI = 3.141592;
-scalar period = 2.5;
-
-vector waveAcceleration(0.6*PI*Foam::cos(2*PI*mesh.time().value()/period)/period,0,0);
-uniformDimensionedVectorField waveSource
-(
-    IOobject
-    (
-        IOobject::groupName("waveSource", continuousPhaseName),
-        runTime.timeName(),
-        mesh,
-        IOobject::READ_IF_PRESENT,
-        IOobject::AUTO_WRITE
-    ),
-    waveAcceleration,
-    dimAcceleration
-);
-
 const word kinematicCloudName
 (
     args.getOrDefault<word>("cloud", "kinematicCloud")
